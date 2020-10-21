@@ -9,7 +9,8 @@
     <div>
         
         <p>{{ task }}</p>
-        <a href="{% url 'update_task'  task.id%}">update</a>
+        <a href="{% url 'update_task'  task.id %}">update</a>
+        <a href="{% url 'delete'  task.id %}">delete</a>
     </div>
 
 
