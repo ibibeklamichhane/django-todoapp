@@ -1,0 +1,12 @@
+.centered {
+    position: fixed;
+    left: 40%;
+    top: 20%;
+    margin-left: -100px;
+    background-color:rgb(96, 218, 201);
+    padding: 30px 30px;
+    color:black;
+  }
+  body{
+      background-color: black;
+  }

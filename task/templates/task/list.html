@@ -1,25 +1,45 @@
-<h3>todo</h3>
-<form method="POST" action="\" >
-    {% csrf_token %}
-    {{ form.title }}
-    <input type="submit" name="create">
-</form>
-   
-{% for task in task %}
-    <div>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        
-        <a href="{% url 'update_task'  task.id %}">update</a>
-        <a href="{% url 'delete'  task.id %}">delete</a>
-
-        {% if task.complete == True %}
-        <s>{{ task }}</s>
-        {% else %}
-        <span>{{ task }}</span>
-
-        {% endif %}
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/main.css" >
+    <title>Docu</title>
+</head>
+<body>
     
-    </div>
 
-{% endfor %}
+
+    <div class="centered">
+            <h3>todo</h3>
+            <form method="POST" action="\" >
+                {% csrf_token %}
+                {{ form.title }}
+                <input type="submit" name="Create Task">
+            </form>
+            
+            {% for task in task %}
+                <div  class="row-element">
+                    
+                    
+                    <a class="btn btn-success" href="{% url 'update_task'  task.id %}">update</a>
+                    <a class="btn btn-danger" href="{% url 'delete'  task.id %}">delete</a>
+
+                    {% if task.complete == True %}
+                    <s class="btn btn-light">{{ task }}</s>
+                    {% else %}
+                    <span class="btn btn-light">{{ task }}</span>
+
+                    {% endif %}
+
+                
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
